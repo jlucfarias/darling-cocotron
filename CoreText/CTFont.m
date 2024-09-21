@@ -18,10 +18,53 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 
 #import <CoreText/CTFont.h>
-#import <CoreText/KTFont.h>
 #import <CoreText/CoreText.h>
+#import <CoreText/KTFont.h>
 
-const CFStringRef kCTFontStyleNameKey = "CTFontSubFamilyName";
+// const CFStringRef kCTFontCopyrightNameKey = @"kCTFontCopyrightNameKey";
+// const CFStringRef kCTFontFamilyNameKey = @"kCTFontFamilyNameKey";
+// const CFStringRef kCTFontSubFamilyNameKey = @"kCTFontSubFamilyNameKey";
+const CFStringRef kCTFontStyleNameKey = @"kCTFontStyleNameKey";
+// const CFStringRef kCTFontUniqueNameKey = @"kCTFontUniqueNameKey";
+const CFStringRef kCTFontFullNameKey = @"kCTFontFullNameKey";
+// const CFStringRef kCTFontVersionNameKey = @"kCTFontVersionNameKey";
+// const CFStringRef kCTFontPostScriptNameKey = @"kCTFontPostScriptNameKey";
+// const CFStringRef kCTFontTrademarkNameKey = @"kCTFontTrademarkNameKey";
+// const CFStringRef kCTFontManufacturerNameKey = @"kCTFontManufacturerNameKey";
+// const CFStringRef kCTFontDesignerNameKey = @"kCTFontDesignerNameKey";
+// const CFStringRef kCTFontDescriptionNameKey = @"kCTFontDescriptionNameKey";
+// const CFStringRef kCTFontVendorURLNameKey = @"kCTFontVendorURLNameKey";
+// const CFStringRef kCTFontDesignerURLNameKey = @"kCTFontDesignerURLNameKey";
+// const CFStringRef kCTFontLicenseNameKey = @"kCTFontLicenseNameKey";
+// const CFStringRef kCTFontLicenseURLNameKey = @"kCTFontLicenseURLNameKey";
+// const CFStringRef kCTFontSampleTextNameKey = @"kCTFontSampleTextNameKey";
+// const CFStringRef kCTFontPostScriptCIDNameKey =
+// @"kCTFontPostScriptCIDNameKey";
+
+// const CFStringRef kCTFontVariationAxisIdentifierKey =
+// @"kCTFontVariationAxisIdentifierKey"; const CFStringRef
+// kCTFontVariationAxisMinimumValueKey = @"kCTFontVariationAxisMinimumValueKey";
+// const CFStringRef kCTFontVariationAxisMaximumValueKey =
+// @"kCTFontVariationAxisMaximumValueKey"; const CFStringRef
+// kCTFontVariationAxisDefaultValueKey = @"kCTFontVariationAxisDefaultValueKey";
+// const CFStringRef kCTFontVariationAxisNameKey =
+// @"kCTFontVariationAxisNameKey"; const CFStringRef
+// kCTFontVariationAxisHiddenKey = @"kCTFontVariationAxisHiddenKey";
+
+// const CFStringRef kCTFontFeatureTypeIdentifierKey =
+// @"kCTFontFeatureTypeIdentifierKey"; const CFStringRef
+// kCTFontFeatureTypeNameKey = @"kCTFontFeatureTypeNameKey"; const CFStringRef
+// kCTFontFeatureTypeExclusiveKey = @"kCTFontFeatureTypeExclusiveKey"; const
+// CFStringRef kCTFontFeatureTypeSelectorsKey =
+// @"kCTFontFeatureTypeSelectorsKey"; const CFStringRef
+// kCTFontFeatureSelectorIdentifierKey = @"kCTFontFeatureSelectorIdentifierKey";
+// const CFStringRef kCTFontFeatureSelectorNameKey =
+// @"kCTFontFeatureSelectorNameKey"; const CFStringRef
+// kCTFontFeatureSelectorDefaultKey = @"kCTFontFeatureSelectorDefaultKey"; const
+// CFStringRef kCTFontFeatureSelectorSettingKey =
+// @"kCTFontFeatureSelectorSettingKey"; const CFStringRef
+// kCTFontFeatureSampleTextKey = @"kCTFontFeatureSampleTextKey"; const
+// CFStringRef kCTFontFeatureTooltipTextKey = @"kCTFontFeatureTooltipTextKey";
 
 CTFontRef
 CTFontCreateWithGraphicsFont(CGFontRef cgFont, CGFloat size,
@@ -114,39 +157,39 @@ CFArrayRef CTFontCopyAvailableTables(CTFontRef font, CTFontTableOptions options)
     return nil;
 }
 
-CFTypeRef CTFontCopyAttribute(CTFontRef font, CFStringRef attribute)
+CFTypeRef CTFontCopyAttribute(CTFontRef font, CFStringRef attribute) {
+    printf("STUB %s\n", __PRETTY_FUNCTION__);
+    return nil;
+}
+
+CGFontRef CTFontCopyGraphicsFont(CTFontRef font,
+                                 CTFontDescriptorRef _Nullable *attributes)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
     return nil;
 }
 
-CGFontRef CTFontCopyGraphicsFont(CTFontRef font, CTFontDescriptorRef _Nullable *attributes)
+CFStringRef CTFontCopyPostScriptName(CTFontRef font) {
+    printf("STUB %s\n", __PRETTY_FUNCTION__);
+    return nil;
+}
+
+CTFontRef CTFontCreateCopyWithAttributes(CTFontRef font, CGFloat size,
+                                         const CGAffineTransform *matrix,
+                                         CTFontDescriptorRef attributes)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
     return nil;
 }
 
-CFStringRef CTFontCopyPostScriptName(CTFontRef font)
+CTFontRef CTFontCreateWithName(CFStringRef name, CGFloat size,
+                               const CGAffineTransform *matrix)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
     return nil;
 }
 
-CTFontRef CTFontCreateCopyWithAttributes(CTFontRef font, CGFloat size, const CGAffineTransform *matrix, CTFontDescriptorRef attributes)
-{
+CFStringRef _Nullable CTFontCopyName(CTFontRef font, CFStringRef nameKey) {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
     return nil;
 }
-
-CTFontRef CTFontCreateWithName(CFStringRef name, CGFloat size, const CGAffineTransform *matrix)
-{
-    printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
-}
-
-CFStringRef _Nullable CTFontCopyName(CTFontRef font, CFStringRef nameKey)
-{
-    printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
-}
-

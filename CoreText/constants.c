@@ -48,7 +48,6 @@ const CFStringRef kCTFontCharacterSetAttribute = CFSTR("NSFontCharacterSetAttrib
 const CFStringRef kCTFontLanguagesAttribute = CFSTR("NSFontLanguagesAttribute");
 const CFStringRef kCTFontBaselineAdjustAttribute = CFSTR("NSFontBaselineAdjustAttribute");
 const CFStringRef kCTFontMacintoshEncodingsAttribute = CFSTR("NSFontMacintoshEncodingsAttribute");
-const CFStringRef kCTFontFeaturesAttribute = CFSTR("NSFontFeaturesAttribute");
 const CFStringRef kCTFontFixedAdvanceAttribute = CFSTR("NSFontFixedAdvanceAttribute");
 const CFStringRef kCTFontOrientationAttribute = CFSTR("NSFontOrientationAttribute");
 const CFStringRef kCTFontFormatAttribute = CFSTR("NSFontFormatAttribute");
