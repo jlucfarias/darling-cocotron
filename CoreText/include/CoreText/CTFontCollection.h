@@ -1,7 +1,7 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <CoreText/CoreTextExport.h>
 
-typedef struct __CTFontCollection *CTFontCollectionRef;
+typedef struct __CTFontCollection* CTFontCollectionRef;
 
 CORETEXT_EXPORT CFArrayRef CTFontCollectionCreateFromAvailableFonts(CFDictionaryRef options);
 CORETEXT_EXPORT CFArrayRef CTFontCollectionCreateMatchingFontDescriptors(CTFontCollectionRef collection);
