@@ -63,8 +63,8 @@ CORETEXT_EXPORT const CFStringRef kCTFontFeatureSelectorSettingKey;
 CORETEXT_EXPORT const CFStringRef kCTFontFeatureSampleTextKey;
 CORETEXT_EXPORT const CFStringRef kCTFontFeatureTooltipTextKey;
 
-typedef enum {
-    // kCTFontUIFontNone = (uint32_t) - 1,
+typedef enum CTFontUIFontType : uint32_t {
+    kCTFontUIFontNone = (uint32_t)-1,
     kCTFontUIFontUser = 0,
     kCTFontUserFontType = 0, // Deprecated
     kCTFontUIFontUserFixedPitch = 1,
@@ -126,7 +126,7 @@ typedef CF_OPTIONS(uint32_t, CTFontTableOptions) {
     kCTFontTableOptionExcludeSynthetic = 1,
 };
 
-enum {
+enum : unsigned int {
     kCTFontTableBASE = 'BASE',
     kCTFontTableCFF  = 'CFF ',
     kCTFontTableDSIG = 'DSIG',
@@ -186,16 +186,16 @@ enum {
 };
 typedef FourCharCode CTFontTableTag;
 
-typedef enum {
+typedef enum CTFontTableOptions : uint32_t {
     kCTFontTableOptionNoOptions = 0,
     kCTFontTableOptionExcludeSynthetic = (1 << 0) // Deprecated
 } CTFontTableOptions;
 
-typedef enum {
+typedef enum CTFontOptions : CFOptionFlags {
     kCTFontOptionsDefault = 0,
     kCTFontOptionsPreventAutoActivation = 1 << 0,
+    kCTFontOptionsPreventAutoDownload = 1 << 1,
     kCTFontOptionsPreferSystemFont = 1 << 2,
-    kCTFontOptionsPreventAutoDownload = 1 << 1
 } CTFontOptions;
 
 CF_IMPLICIT_BRIDGING_ENABLED
@@ -222,8 +222,7 @@ CORETEXT_EXPORT CTFontRef CTFontCreateForString(CTFontRef currentFont, CFStringR
 CORETEXT_EXPORT CTFontRef CTFontCreateForStringWithLanguage(CTFontRef currentFont, CFStringRef string, CFRange range, CFStringRef language);
 
 CORETEXT_EXPORT CTFontDescriptorRef CTFontCopyFontDescriptor(CTFontRef font);
-CORETEXT_EXPORT CFTypeRef CTFontCopyAttribute(CTFontRef font,
-                                              CFStringRef attribute);
+CORETEXT_EXPORT CFTypeRef CTFontCopyAttribute(CTFontRef font, CFStringRef attribute);
 CORETEXT_EXPORT CGFloat CTFontGetSize(CTFontRef self);
 CORETEXT_EXPORT CGAffineTransform CTFontGetMatrix(CTFontRef font);
 CORETEXT_EXPORT CTFontSymbolicTraits CTFontGetSymbolicTraits(CTFontRef font);
@@ -246,7 +245,7 @@ CORETEXT_EXPORT CGFloat CTFontGetAscent(CTFontRef self);
 CORETEXT_EXPORT CGFloat CTFontGetDescent(CTFontRef self);
 CORETEXT_EXPORT CGFloat CTFontGetLeading(CTFontRef self);
 CORETEXT_EXPORT unsigned int CTFontGetUnitsPerEm(CTFontRef font);
-CORETEXT_EXPORT size_t CTFontGetGlyphCount(CTFontRef self);
+CORETEXT_EXPORT CFIndex CTFontGetGlyphCount(CTFontRef font);
 CORETEXT_EXPORT CGRect CTFontGetBoundingBox(CTFontRef self);
 CORETEXT_EXPORT CGFloat CTFontGetUnderlinePosition(CTFontRef self);
 CORETEXT_EXPORT CGFloat CTFontGetUnderlineThickness(CTFontRef self);
@@ -259,9 +258,9 @@ CORETEXT_EXPORT CGPathRef CTFontCreatePathForGlyph(CTFontRef self,
                                                    CGAffineTransform *xform);
 CORETEXT_EXPORT CGGlyph CTFontGetGlyphWithName(CTFontRef font, CFStringRef glyphName);
 CORETEXT_EXPORT CGRect CTFontGetBoundingRectsForGlyphs(CTFontRef font, CTFontOrientation orientation, const CGGlyph *glyphs, CGRect *boundingRects, CFIndex count);
-CORETEXT_EXPORT void CTFontGetAdvancesForGlyphs(CTFontRef self, int orientation,
+CORETEXT_EXPORT double CTFontGetAdvancesForGlyphs(CTFontRef font, CTFontOrientation orientation,
                                                 const CGGlyph *glyphs,
-                                                CGSize *advances, size_t count);
+                                                CGSize *advances, CFIndex count);
 CORETEXT_EXPORT CGRect CTFontGetOpticalBoundsForGlyphs(CTFontRef font, const CGGlyph *glyphs, CGRect *boundingRects, CFIndex count, CFOptionFlags options);
 CORETEXT_EXPORT void CTFontGetVerticalTranslationsForGlyphs(CTFontRef font, const CGGlyph *glyphs, CGSize *translations, CFIndex count);
 
@@ -271,10 +270,7 @@ CORETEXT_EXPORT CFDictionaryRef CTFontCopyVariation(CTFontRef font);
 CORETEXT_EXPORT CFArrayRef CTFontCopyFeatures(CTFontRef font);
 CORETEXT_EXPORT CFArrayRef CTFontCopyFeatureSettings(CTFontRef font);
 
-CORETEXT_EXPORT bool CTFontGetGlyphsForCharacters(CTFontRef self,
-                                                  const UniChar *characters,
-                                                  CGGlyph *glyphs,
-                                                  size_t count);
+CORETEXT_EXPORT bool CTFontGetGlyphsForCharacters(CTFontRef font, const UniChar *characters, CGGlyph *glyphs, CFIndex count);
 CORETEXT_EXPORT void CTFontDrawGlyphs(CTFontRef font, const CGGlyph *glyphs, const CGPoint *positions, size_t count, CGContextRef context);
 CORETEXT_EXPORT CFIndex CTFontGetLigatureCaretPositions(CTFontRef font, CGGlyph glyph, CGFloat *positions, CFIndex maxPositions);
 
@@ -282,7 +278,7 @@ CORETEXT_EXPORT CGFontRef CTFontCopyGraphicsFont(
         CTFontRef font, CTFontDescriptorRef _Nullable *attributes);
 CORETEXT_EXPORT CTFontRef CTFontCreateWithGraphicsFont(
         CGFontRef cgFont, CGFloat size, CGAffineTransform *xform,
-        /* CTFontDescriptorRef */ void *attributes);
+        CTFontDescriptorRef attributes);
 CORETEXT_EXPORT ATSFontRef CTFontGetPlatformFont(CTFontRef font, CTFontDescriptorRef  _Nullable *attributes); // Deprecated
 CORETEXT_EXPORT CTFontRef CTFontCreateWithPlatformFont(ATSFontRef platformFont, CGFloat size, const CGAffineTransform *matrix, CTFontDescriptorRef attributes); // Deprecated
 CORETEXT_EXPORT CTFontRef CTFontCreateWithQuickdrawInstance(ConstStr255Param name, int16_t identifier, uint8_t style, CGFloat size); // Deprecated

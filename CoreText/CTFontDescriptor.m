@@ -2,28 +2,28 @@
 
 #include <stdio.h>
 
-const CFStringRef kCTFontURLAttribute = @"CTFontURLAttribute";
+const CFStringRef kCTFontURLAttribute = @"NSCTFontFileURLAttribute";
 const CFStringRef kCTFontNameAttribute = @"NSFontNameAttribute";
 const CFStringRef kCTFontDisplayNameAttribute = @"NSFontVisibleNameAttribute";
 const CFStringRef kCTFontFamilyNameAttribute = @"NSFontFamilyAttribute";
 const CFStringRef kCTFontStyleNameAttribute = @"NSFontFaceAttribute";
 const CFStringRef kCTFontTraitsAttribute = @"NSCTFontTraitsAttribute";
-const CFStringRef kCTFontVariationAttribute = @"NSFontVariationAttribute";
+const CFStringRef kCTFontVariationAttribute = @"NSCTFontVariationAttribute";
 const CFStringRef kCTFontSizeAttribute = @"NSFontSizeAttribute";
-const CFStringRef kCTFontMatrixAttribute = @"NSFontMatrixAttribute";
-const CFStringRef kCTFontCascadeListAttribute = @"CTFontCascadeListAttribute";
-const CFStringRef kCTFontCharacterSetAttribute = @"NSFontCharacterSetAttribute";
-const CFStringRef kCTFontLanguagesAttribute = @"NSFontLanguagesAttribute";
-const CFStringRef kCTFontBaselineAdjustAttribute = @"NSFontBaselineAdjustAttribute";
-const CFStringRef kCTFontMacintoshEncodingsAttribute = @"NSFontMacintoshEncodingsAttribute";
-const CFStringRef kCTFontFeaturesAttribute = @"CTFontFeaturesAttribute";
-const CFStringRef kCTFontFeatureSettingsAttribute = @"CTFontFeatureSettingsAttribute";
-const CFStringRef kCTFontFixedAdvanceAttribute = @"NSFontFixedAdvanceAttribute";
-const CFStringRef kCTFontOrientationAttribute = @"NSFontOrientationAttribute";
-const CFStringRef kCTFontEnabledAttribute = @"NSFontEnabledAttribute";
-const CFStringRef kCTFontFormatAttribute = @"NSFontFormatAttribute";
-const CFStringRef kCTFontRegistrationScopeAttribute = @"NSFontRegistrationScopeAttribute";
-const CFStringRef kCTFontPriorityAttribute = @"NSFontPriorityAttribute";
+const CFStringRef kCTFontMatrixAttribute = @"NSCTFontMatrixAttribute";
+const CFStringRef kCTFontCascadeListAttribute = @"NSCTFontCascadeListAttribute";
+const CFStringRef kCTFontCharacterSetAttribute = @"NSCTFontCharacterSetAttribute";
+const CFStringRef kCTFontLanguagesAttribute = @"NSCTFontLanguagesAttribute";
+const CFStringRef kCTFontBaselineAdjustAttribute = @"NSCTFontBaselineAdjustAttribute";
+const CFStringRef kCTFontMacintoshEncodingsAttribute = @"NSCTFontMacintoshEncodingsAttribute";
+const CFStringRef kCTFontFeaturesAttribute = @"NSCTFontFeaturesAttribute";
+const CFStringRef kCTFontFeatureSettingsAttribute = @"NSCTFontFeatureSettingsAttribute";
+const CFStringRef kCTFontFixedAdvanceAttribute = @"NSCTFontFixedAdvanceAttribute";
+const CFStringRef kCTFontOrientationAttribute = @"NSCTFontOrientationAttribute";
+const CFStringRef kCTFontEnabledAttribute = @"NSCTFontEnabledAttribute";
+const CFStringRef kCTFontFormatAttribute = @"NSCTFontFormatAttribute";
+const CFStringRef kCTFontRegistrationScopeAttribute = @"NSCTFontRegistrationScopeAttribute";
+const CFStringRef kCTFontPriorityAttribute = @"NSCTFontPriorityAttribute";
 
 CFTypeRef CTFontDescriptorCopyAttribute(CTFontDescriptorRef descriptor, CFStringRef attribute)
 {

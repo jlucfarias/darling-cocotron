@@ -1,6 +1,6 @@
 #import <CoreText/CTFontCollection.h>
 
-CFArrayRef CTFontCollectionCreateFromAvailableFonts(CFDictionaryRef options)
+CTFontCollectionRef CTFontCollectionCreateFromAvailableFonts(CFDictionaryRef options)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
     return nil;

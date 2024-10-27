@@ -40,23 +40,23 @@ const CFStringRef kCTFontLicenseURLNameKey = @"CTFontLicenseURLName";
 const CFStringRef kCTFontSampleTextNameKey = @"CTFontSampleTextName";
 const CFStringRef kCTFontPostScriptCIDNameKey = @"CTFontPostScriptCIDName";
 
-const CFStringRef kCTFontVariationAxisIdentifierKey = @"CTFontVariationAxisIdentifier";
-const CFStringRef kCTFontVariationAxisMinimumValueKey = @"CTFontVariationAxisMinimumValue";
-const CFStringRef kCTFontVariationAxisMaximumValueKey = @"CTFontVariationAxisMaximumValue";
-const CFStringRef kCTFontVariationAxisDefaultValueKey = @"CTFontVariationAxisDefaultValue";
-const CFStringRef kCTFontVariationAxisNameKey = @"CTFontVariationAxisName";
-const CFStringRef kCTFontVariationAxisHiddenKey = @"CTFontVariationAxisHidden";
+const CFStringRef kCTFontVariationAxisIdentifierKey = @"NSCTVariationAxisIdentifier";
+const CFStringRef kCTFontVariationAxisMinimumValueKey = @"NSCTVariationAxisMinimumValue";
+const CFStringRef kCTFontVariationAxisMaximumValueKey = @"NSCTVariationAxisMaximumValue";
+const CFStringRef kCTFontVariationAxisDefaultValueKey = @"NSCTVariationAxisDefaultValue";
+const CFStringRef kCTFontVariationAxisNameKey = @"NSCTVariationAxisName";
+const CFStringRef kCTFontVariationAxisHiddenKey = @"NSCTVariationAxisHidden";
 
-const CFStringRef kCTFontFeatureTypeIdentifierKey = @"CTFontFeatureTypeIdentifierKey";
-const CFStringRef kCTFontFeatureTypeNameKey = @"CTFontFeatureTypeName";
-const CFStringRef kCTFontFeatureTypeExclusiveKey = @"CTFontFeatureTypeExclusive";
-const CFStringRef kCTFontFeatureTypeSelectorsKey = @"CTFontFeatureTypeSelectors";
-const CFStringRef kCTFontFeatureSelectorIdentifierKey = @"CTFontFeatureSelectorIdentifierKey";
-const CFStringRef kCTFontFeatureSelectorNameKey = @"CTFontFeatureSelectorName";
-const CFStringRef kCTFontFeatureSelectorDefaultKey = @"CTFontFeatureSelectorDefault";
-const CFStringRef kCTFontFeatureSelectorSettingKey = @"CTFontFeatureSelectorSetting";
-const CFStringRef kCTFontFeatureSampleTextKey = @"CTFontFeatureSampleText";
-const CFStringRef kCTFontFeatureTooltipTextKey = @"CTFontFeatureTooltipText";
+const CFStringRef kCTFontFeatureTypeIdentifierKey = @"CTFeatureTypeIdentifier";
+const CFStringRef kCTFontFeatureTypeNameKey = @"CTFeatureTypeName";
+const CFStringRef kCTFontFeatureTypeExclusiveKey = @"CTFeatureTypeExclusive";
+const CFStringRef kCTFontFeatureTypeSelectorsKey = @"CTFeatureTypeSelectors";
+const CFStringRef kCTFontFeatureSelectorIdentifierKey = @"CTFeatureSelectorIdentifier";
+const CFStringRef kCTFontFeatureSelectorNameKey = @"CTFeatureSelectorName";
+const CFStringRef kCTFontFeatureSelectorDefaultKey = @"CTFeatureSelectorDefault";
+const CFStringRef kCTFontFeatureSelectorSettingKey = @"CTFeatureSelectorSetting";
+const CFStringRef kCTFontFeatureSampleTextKey = @"CTFeatureSampleText";
+const CFStringRef kCTFontFeatureTooltipTextKey = @"CTFeatureTooltipText";
 
 CTFontRef CTFontCreateWithName(CFStringRef name, CGFloat size, const CGAffineTransform *matrix)
 {
@@ -243,8 +243,8 @@ unsigned int CTFontGetUnitsPerEm(CTFontRef font)
     return nil;
 }
 
-size_t CTFontGetGlyphCount(CTFontRef self) {
-    return [self numberOfGlyphs];
+CFIndex CTFontGetGlyphCount(CTFontRef font) {
+    return [font numberOfGlyphs];
 }
 
 CGRect CTFontGetBoundingBox(CTFontRef self) {
@@ -291,11 +291,19 @@ CGRect CTFontGetBoundingRectsForGlyphs(CTFontRef font, CTFontOrientation orienta
     return nil;
 }
 
-void CTFontGetAdvancesForGlyphs(CTFontRef self, int orientation,
+double CTFontGetAdvancesForGlyphs(CTFontRef font, CTFontOrientation orientation,
                                 const CGGlyph *glyphs, CGSize *advances,
-                                size_t count)
+                                CFIndex count)
 {
-    [self getAdvancements: advances forGlyphs: glyphs count: count];
+    [font getAdvancements: advances forGlyphs: glyphs count: count];
+
+    double sum;
+
+    for (int i = 0; i < count; i++) {
+        sum += advances[i].width;
+    }
+
+    return sum;
 }
 
 CGRect CTFontGetOpticalBoundsForGlyphs(CTFontRef font, const CGGlyph *glyphs,
@@ -336,10 +344,10 @@ CFArrayRef CTFontCopyFeatureSettings(CTFontRef font)
     return nil;
 }
 
-bool CTFontGetGlyphsForCharacters(CTFontRef self, const UniChar *characters,
-                                  CGGlyph *glyphs, size_t count)
+bool CTFontGetGlyphsForCharacters(CTFontRef font, const UniChar *characters,
+                                  CGGlyph *glyphs, CFIndex count)
 {
-    [self getGlyphs: glyphs forCharacters: characters length: count];
+    [font getGlyphs: glyphs forCharacters: characters length: count];
     // FIXME: change getGlyphs: to return a BOOL
     return YES;
 }
@@ -366,7 +374,7 @@ CGFontRef CTFontCopyGraphicsFont(CTFontRef font, CTFontDescriptorRef _Nullable *
 CTFontRef
 CTFontCreateWithGraphicsFont(CGFontRef cgFont, CGFloat size,
                              CGAffineTransform *xform,
-                             /* CTFontDescriptorRef */ void *attributes)
+                             CTFontDescriptorRef attributes)
 {
     return [[KTFont alloc] initWithFont: cgFont size: size];
 }
