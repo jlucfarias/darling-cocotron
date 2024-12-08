@@ -1,5 +1,6 @@
 #import <CoreFoundation/CFBase.h>
 #import <CoreText/CoreTextExport.h>
+#import <CoreText/CTFontTraits.h>
 
 CORETEXT_EXPORT const CFStringRef kCTFontURLAttribute;
 CORETEXT_EXPORT const CFStringRef kCTFontNameAttribute;
@@ -27,6 +28,15 @@ CORETEXT_EXPORT const CFStringRef kCTFontPriorityAttribute;
 CF_IMPLICIT_BRIDGING_ENABLED
 
 typedef struct __CTFontDescriptor* CTFontDescriptorRef;
+
+typedef enum CTFontOrientation : uint32_t {
+  kCTFontOrientationDefault = 0,
+  kCTFontDefaultOrientation = 0, // Deprecated
+  kCTFontOrientationHorizontal = 1,
+  kCTFontHorizontalOrientation = 1, // Deprecated
+  kCTFontOrientationVertical = 2,
+  kCTFontVerticalOrientation = 2, // Deprecated
+} CTFontOrientation;
 
 CORETEXT_EXPORT CFTypeRef CTFontDescriptorCopyAttribute(CTFontDescriptorRef descriptor, CFStringRef attribute);
 

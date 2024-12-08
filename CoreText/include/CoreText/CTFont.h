@@ -274,6 +274,12 @@ CORETEXT_EXPORT CGFontRef CTFontCopyGraphicsFont(
 CORETEXT_EXPORT CTFontRef CTFontCreateWithGraphicsFont(
         CGFontRef cgFont, CGFloat size, CGAffineTransform *xform,
         CTFontDescriptorRef attributes);
+
+#ifndef ATSFONTREF_DEFINED
+typedef uint32_t ATSFontRef;
+#define ATSFONTREF_DEFINED 1
+#endif
+
 CORETEXT_EXPORT ATSFontRef CTFontGetPlatformFont(CTFontRef font, CTFontDescriptorRef  _Nullable *attributes); // Deprecated
 CORETEXT_EXPORT CTFontRef CTFontCreateWithPlatformFont(ATSFontRef platformFont, CGFloat size, const CGAffineTransform *matrix, CTFontDescriptorRef attributes); // Deprecated
 CORETEXT_EXPORT CTFontRef CTFontCreateWithQuickdrawInstance(ConstStr255Param name, int16_t identifier, uint8_t style, CGFloat size); // Deprecated
