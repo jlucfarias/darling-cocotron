@@ -123,7 +123,7 @@ typedef enum CTFontUIFontType : uint32_t {
 
 typedef CF_OPTIONS(uint32_t, CTFontTableOptions) {
     kCTFontTableOptionNoOptions        = 0,
-    kCTFontTableOptionExcludeSynthetic = 1,
+    kCTFontTableOptionExcludeSynthetic = 1, // Deprecated
 };
 
 enum : unsigned int {
@@ -185,11 +185,6 @@ enum : unsigned int {
     kCTFontTableVmtx = 'vmtx'
 };
 typedef FourCharCode CTFontTableTag;
-
-typedef enum CTFontTableOptions : uint32_t {
-    kCTFontTableOptionNoOptions = 0,
-    kCTFontTableOptionExcludeSynthetic = (1 << 0) // Deprecated
-} CTFontTableOptions;
 
 typedef enum CTFontOptions : CFOptionFlags {
     kCTFontOptionsDefault = 0,
