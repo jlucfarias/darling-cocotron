@@ -151,13 +151,13 @@ CGFloat CTFontGetSize(CTFontRef self) {
 CGAffineTransform CTFontGetMatrix(CTFontRef font)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return CGAffineTransformIdentity;
 }
 
 CTFontSymbolicTraits CTFontGetSymbolicTraits(CTFontRef font)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return kCTFontTraitItalic;
 }
 
 CFDictionaryRef CTFontCopyTraits(CTFontRef font)
@@ -216,7 +216,7 @@ CFCharacterSetRef CTFontCopyCharacterSet(CTFontRef font)
 CFStringEncoding CTFontGetStringEncoding(CTFontRef font)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return CFStringGetSystemEncoding();
 }
 
 CFArrayRef CTFontCopySupportedLanguages(CTFontRef font)
@@ -240,7 +240,7 @@ CGFloat CTFontGetLeading(CTFontRef self) {
 unsigned int CTFontGetUnitsPerEm(CTFontRef font)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return 0;
 }
 
 CFIndex CTFontGetGlyphCount(CTFontRef font) {
@@ -280,7 +280,7 @@ CGPathRef CTFontCreatePathForGlyph(CTFontRef self, CGGlyph glyph,
 CGGlyph CTFontGetGlyphWithName(CTFontRef font, CFStringRef glyphName)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return CGNullGlyph;
 }
 
 CGRect CTFontGetBoundingRectsForGlyphs(CTFontRef font, CTFontOrientation orientation,
@@ -288,7 +288,7 @@ CGRect CTFontGetBoundingRectsForGlyphs(CTFontRef font, CTFontOrientation orienta
                                        CFIndex count)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return CGRectMake(0, 0, 0, 0);
 }
 
 double CTFontGetAdvancesForGlyphs(CTFontRef font, CTFontOrientation orientation,
@@ -311,7 +311,7 @@ CGRect CTFontGetOpticalBoundsForGlyphs(CTFontRef font, const CGGlyph *glyphs,
                                        CFOptionFlags options)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return CGRectMake(0, 0, 0, 0);
 }
 
 void CTFontGetVerticalTranslationsForGlyphs(CTFontRef font, const CGGlyph *glyphs,
@@ -362,7 +362,7 @@ CFIndex CTFontGetLigatureCaretPositions(CTFontRef font, CGGlyph glyph, CGFloat *
                                         CFIndex maxPositions)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return -1;
 }
 
 CGFontRef CTFontCopyGraphicsFont(CTFontRef font, CTFontDescriptorRef _Nullable *attributes)
@@ -382,7 +382,7 @@ CTFontCreateWithGraphicsFont(CGFontRef cgFont, CGFloat size,
 ATSFontRef CTFontGetPlatformFont(CTFontRef font, CTFontDescriptorRef  _Nullable *attributes)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return 0;
 }
 
 CTFontRef CTFontCreateWithPlatformFont(ATSFontRef platformFont, CGFloat size,
@@ -415,5 +415,5 @@ CFDataRef CTFontCopyTable(CTFontRef font, CTFontTableTag table, CTFontTableOptio
 CFTypeID CTFontGetTypeID(void)
 {
     printf("STUB %s\n", __PRETTY_FUNCTION__);
-    return nil;
+    return 0;
 }
