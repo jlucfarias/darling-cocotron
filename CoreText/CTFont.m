@@ -21,42 +21,42 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 #import <CoreText/CoreText.h>
 #import <CoreText/KTFont.h>
 
-const CFStringRef kCTFontCopyrightNameKey = @"CTFontCopyrightName";
-const CFStringRef kCTFontFamilyNameKey = @"CTFontFamilyName";
-const CFStringRef kCTFontSubFamilyNameKey = @"CTFontSubFamilyName";
-const CFStringRef kCTFontStyleNameKey = @"CTFontSubFamilyName";
-const CFStringRef kCTFontUniqueNameKey = @"CTFontUniqueName";
-const CFStringRef kCTFontFullNameKey = @"CTFontFullName";
-const CFStringRef kCTFontVersionNameKey = @"CTFontVersionName";
-const CFStringRef kCTFontPostScriptNameKey = @"CTFontPostScriptName";
-const CFStringRef kCTFontTrademarkNameKey = @"CTFontTrademarkName";
-const CFStringRef kCTFontManufacturerNameKey = @"CTFontManufacturerName";
-const CFStringRef kCTFontDesignerNameKey = @"CTFontDesignerName";
-const CFStringRef kCTFontDescriptionNameKey = @"CTFontDescriptionName";
-const CFStringRef kCTFontVendorURLNameKey = @"CTFontVendorURLName";
-const CFStringRef kCTFontDesignerURLNameKey = @"CTFontDesignerURLName";
-const CFStringRef kCTFontLicenseNameKey = @"CTFontLicenseNameName";
-const CFStringRef kCTFontLicenseURLNameKey = @"CTFontLicenseURLName";
-const CFStringRef kCTFontSampleTextNameKey = @"CTFontSampleTextName";
-const CFStringRef kCTFontPostScriptCIDNameKey = @"CTFontPostScriptCIDName";
+const CFStringRef kCTFontCopyrightNameKey = CFSTR("CTFontCopyrightName")
+const CFStringRef kCTFontFamilyNameKey = CFSTR("CTFontFamilyName");
+const CFStringRef kCTFontSubFamilyNameKey = CFSTR("CTFontSubFamilyName");
+const CFStringRef kCTFontStyleNameKey = CFSTR("CTFontSubFamilyName");
+const CFStringRef kCTFontUniqueNameKey = CFSTR("CTFontUniqueName");
+const CFStringRef kCTFontFullNameKey = CFSTR("CTFontFullName");
+const CFStringRef kCTFontVersionNameKey = CFSTR("CTFontVersionName");
+const CFStringRef kCTFontPostScriptNameKey = CFSTR("CTFontPostScriptName");
+const CFStringRef kCTFontTrademarkNameKey = CFSTR("CTFontTrademarkName");
+const CFStringRef kCTFontManufacturerNameKey = CFSTR("CTFontManufacturerName");
+const CFStringRef kCTFontDesignerNameKey = CFSTR("CTFontDesignerName");
+const CFStringRef kCTFontDescriptionNameKey = CFSTR("CTFontDescriptionName");
+const CFStringRef kCTFontVendorURLNameKey = CFSTR("CTFontVendorURLName");
+const CFStringRef kCTFontDesignerURLNameKey = CFSTR("CTFontDesignerURLName");
+const CFStringRef kCTFontLicenseNameKey = CFSTR("CTFontLicenseNameName");
+const CFStringRef kCTFontLicenseURLNameKey = CFSTR("CTFontLicenseURLName");
+const CFStringRef kCTFontSampleTextNameKey = CFSTR("CTFontSampleTextName");
+const CFStringRef kCTFontPostScriptCIDNameKey = CFSTR("CTFontPostScriptCIDName");
 
-const CFStringRef kCTFontVariationAxisIdentifierKey = @"NSCTVariationAxisIdentifier";
-const CFStringRef kCTFontVariationAxisMinimumValueKey = @"NSCTVariationAxisMinimumValue";
-const CFStringRef kCTFontVariationAxisMaximumValueKey = @"NSCTVariationAxisMaximumValue";
-const CFStringRef kCTFontVariationAxisDefaultValueKey = @"NSCTVariationAxisDefaultValue";
-const CFStringRef kCTFontVariationAxisNameKey = @"NSCTVariationAxisName";
-const CFStringRef kCTFontVariationAxisHiddenKey = @"NSCTVariationAxisHidden";
+const CFStringRef kCTFontVariationAxisIdentifierKey = CFSTR("NSCTVariationAxisIdentifier");
+const CFStringRef kCTFontVariationAxisMinimumValueKey = CFSTR("NSCTVariationAxisMinimumValue");
+const CFStringRef kCTFontVariationAxisMaximumValueKey = CFSTR("NSCTVariationAxisMaximumValue");
+const CFStringRef kCTFontVariationAxisDefaultValueKey = CFSTR("NSCTVariationAxisDefaultValue");
+const CFStringRef kCTFontVariationAxisNameKey = CFSTR("NSCTVariationAxisName");
+const CFStringRef kCTFontVariationAxisHiddenKey = CFSTR("NSCTVariationAxisHidden");
 
-const CFStringRef kCTFontFeatureTypeIdentifierKey = @"CTFeatureTypeIdentifier";
-const CFStringRef kCTFontFeatureTypeNameKey = @"CTFeatureTypeName";
-const CFStringRef kCTFontFeatureTypeExclusiveKey = @"CTFeatureTypeExclusive";
-const CFStringRef kCTFontFeatureTypeSelectorsKey = @"CTFeatureTypeSelectors";
-const CFStringRef kCTFontFeatureSelectorIdentifierKey = @"CTFeatureSelectorIdentifier";
-const CFStringRef kCTFontFeatureSelectorNameKey = @"CTFeatureSelectorName";
-const CFStringRef kCTFontFeatureSelectorDefaultKey = @"CTFeatureSelectorDefault";
-const CFStringRef kCTFontFeatureSelectorSettingKey = @"CTFeatureSelectorSetting";
-const CFStringRef kCTFontFeatureSampleTextKey = @"CTFeatureSampleText";
-const CFStringRef kCTFontFeatureTooltipTextKey = @"CTFeatureTooltipText";
+const CFStringRef kCTFontFeatureTypeIdentifierKey = CFSTR("CTFeatureTypeIdentifier");
+const CFStringRef kCTFontFeatureTypeNameKey = CFSTR("CTFeatureTypeName");
+const CFStringRef kCTFontFeatureTypeExclusiveKey = CFSTR("CTFeatureTypeExclusive");
+const CFStringRef kCTFontFeatureTypeSelectorsKey = CFSTR("CTFeatureTypeSelectors");
+const CFStringRef kCTFontFeatureSelectorIdentifierKey = CFSTR("CTFeatureSelectorIdentifier");
+const CFStringRef kCTFontFeatureSelectorNameKey = CFSTR("CTFeatureSelectorName");
+const CFStringRef kCTFontFeatureSelectorDefaultKey = CFSTR("CTFeatureSelectorDefault");
+const CFStringRef kCTFontFeatureSelectorSettingKey = CFSTR("CTFeatureSelectorSetting");
+const CFStringRef kCTFontFeatureSampleTextKey = CFSTR("CTFeatureSampleText");
+const CFStringRef kCTFontFeatureTooltipTextKey = CFSTR("CTFeatureTooltipText");
 
 CTFontRef CTFontCreateWithName(CFStringRef name, CGFloat size, const CGAffineTransform *matrix)
 {
