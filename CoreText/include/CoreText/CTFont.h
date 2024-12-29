@@ -17,12 +17,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 
-#import <CoreGraphics/CGAffineTransform.h>
-#import <CoreGraphics/CGFont.h>
-#import <CoreGraphics/CGPath.h>
+#import <CoreGraphics/CGContext.h>
 #import <CoreText/CTFontDescriptor.h>
 #import <CoreText/CTParagraphStyle.h>
 #import <CoreText/CoreTextExport.h>
+#import <ATS/ATS.h>
 
 typedef struct CF_BRIDGED_TYPE(id) KTFont *CTFontRef;
 
@@ -274,11 +273,6 @@ CORETEXT_EXPORT CGFontRef CTFontCopyGraphicsFont(
 CORETEXT_EXPORT CTFontRef CTFontCreateWithGraphicsFont(
         CGFontRef cgFont, CGFloat size, CGAffineTransform *xform,
         CTFontDescriptorRef attributes);
-
-#ifndef ATSFONTREF_DEFINED
-typedef uint32_t ATSFontRef;
-#define ATSFONTREF_DEFINED 1
-#endif
 
 CORETEXT_EXPORT ATSFontRef CTFontGetPlatformFont(CTFontRef font, CTFontDescriptorRef  _Nullable *attributes); // Deprecated
 CORETEXT_EXPORT CTFontRef CTFontCreateWithPlatformFont(ATSFontRef platformFont, CGFloat size, const CGAffineTransform *matrix, CTFontDescriptorRef attributes); // Deprecated
