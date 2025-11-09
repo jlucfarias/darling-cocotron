@@ -396,6 +396,7 @@ set(AppKit_sources
 	NSAccessibility.m
 	NSAppearance.m
 	NSAccessibilityElement.m
+	NSAccessibilityRemoteUIElement.m
 	NSKeyValueBinding.m
 	NSCandidateListTouchBarItem.m
 	NSCollectionViewFlowLayout.m
@@ -558,6 +559,17 @@ add_framework(AppKit
 
 reexport(AppKit Foundation ${CMAKE_BINARY_DIR}/src/external/foundation/Foundation)
 reexport(AppKit ApplicationServices ${CMAKE_BINARY_DIR}/src/frameworks/ApplicationServices/ApplicationServices)
+
+target_include_directories(AppKit PRIVATE
+	private-include
+)
+add_library(AppKit_private INTERFACE)
+target_link_libraries(AppKit_private INTERFACE
+	AppKit
+)
+target_include_directories(AppKit_private INTERFACE
+	private-include
+)
 
 function(add_backend name)
 	cmake_parse_arguments(BACKEND "" "INFO_PLIST" "SOURCES;DEPENDENCIES;RESOURCES" ${ARGN})

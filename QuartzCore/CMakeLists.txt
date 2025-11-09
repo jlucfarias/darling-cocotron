@@ -26,8 +26,10 @@ set(QuartzCore_sources
 	CAAnimation.m
 	CABase.m
 	CABasicAnimation.m
+	CAContext.m
 	CALayerContext.m
 	CALayer.m
+	CALayerHost.m
 	CATextLayer.m
 	CAMediaTimingFunction.m
 	CAPropertyAnimation.m
@@ -113,3 +115,19 @@ set_target_properties(QuartzCore
 )
 
 add_dependencies(QuartzCore CoreImage CoreVideo)
+
+target_include_directories(QuartzCore PUBLIC
+	include
+)
+
+target_include_directories(QuartzCore PRIVATE
+	private-include
+)
+
+add_library(QuartzCore_private INTERFACE)
+target_link_libraries(QuartzCore_private INTERFACE
+	QuartzCore
+)
+target_include_directories(QuartzCore_private INTERFACE
+	private-include
+)

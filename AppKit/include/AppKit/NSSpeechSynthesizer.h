@@ -21,7 +21,21 @@
 #import <Foundation/NSObject.h>
 #import <Foundation/NSString.h>
 
-APPKIT_EXPORT NSString *const NSVoiceName;
+typedef NSString *NSVoiceGenderName;
+
+APPKIT_EXPORT NSVoiceGenderName const NSVoiceGenderFemale;
+APPKIT_EXPORT NSVoiceGenderName const NSVoiceGenderMale;
+
+typedef NSString *NSVoiceAttributeKey;
+
+APPKIT_EXPORT NSVoiceAttributeKey const NSVoiceName;
+APPKIT_EXPORT NSVoiceAttributeKey const NSVoiceGender;
+
+typedef NSString *NSSpeechPropertyKey;
+
+APPKIT_EXPORT NSSpeechPropertyKey const NSSpeechRateProperty;
+APPKIT_EXPORT NSSpeechPropertyKey const NSSpeechPitchBaseProperty;
+APPKIT_EXPORT NSSpeechPropertyKey const NSSpeechVolumeProperty;
 
 @interface NSSpeechSynthesizer : NSObject
 @end

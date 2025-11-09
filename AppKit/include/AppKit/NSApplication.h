@@ -123,6 +123,7 @@ typedef NS_OPTIONS(NSUInteger, NSApplicationPresentationOptions) {
     NSMenu *_mainMenu;
     NSMenu *_windowsMenu;
     NSMenu *_servicesMenu;
+    NSMenu *_helpMenu;
 
     NSImage *_applicationIconImage;
 
