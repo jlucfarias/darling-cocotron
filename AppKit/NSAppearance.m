@@ -52,4 +52,9 @@ NSString *const NSAppearanceNameControlStrip =
     NSLog(@"Stub called: %@ in %@", NSStringFromSelector([anInvocation selector]), [self class]);
 }
 
++ (NSAppearance *) appearanceNamed: (NSAppearanceName) name {
+    printf("STUB %s\n", __PRETTY_FUNCTION__);
+    return [NSAppearance alloc];
+}
+
 @end

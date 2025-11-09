@@ -288,6 +288,10 @@ static BOOL _allowsAutomaticWindowTabbing;
     NSUnimplementedMethod();
 }
 
+- (void) setAccessibilityElement: (BOOL) accessibilityElement {
+    _isAcessible = accessibilityElement;
+}
+
 // This is Apple private API
 + (Class) frameViewClassForStyleMask: (NSWindowStyleMask) styleMask {
     return [NSThemeFrame class];

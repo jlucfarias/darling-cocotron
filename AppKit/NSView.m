@@ -153,6 +153,10 @@ typedef struct __VFlags {
 #endif
 } _VFlags;
 
+- (void) setAppearance: (NSAppearance *) appearance {
+    _appearance = appearance;
+}
+
 - (void) encodeWithCoder: (NSCoder *) coder {
     [super encodeWithCoder: coder];
 
