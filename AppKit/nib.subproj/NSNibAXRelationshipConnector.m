@@ -29,4 +29,9 @@
     NSLog(@"Stub called: %@ in %@", NSStringFromSelector([anInvocation selector]), [self class]);
 }
 
+- (id) initWithCoder: (NSCoder *) coder {
+    printf("STUB %s\n", __PRETTY_FUNCTION__);
+    return [NSNibAXAttributeConnector alloc];
+}
+
 @end
