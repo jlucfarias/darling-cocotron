@@ -29,4 +29,10 @@
     NSLog(@"Stub called: %@ in %@",
           NSStringFromSelector([anInvocation selector]), self);
 }
+
++ (NSArray<NSRunningApplication *> *) runningApplicationsWithBundleIdentifier: (NSString *) bundleIdentifier {
+    printf("STUB %s\n", __PRETTY_FUNCTION__);
+    return nil;
+}
+
 @end
