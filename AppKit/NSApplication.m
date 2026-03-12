@@ -80,6 +80,8 @@ const NSNotificationName NSApplicationWillTerminateNotification =
 const NSNotificationName NSApplicationDidChangeScreenParametersNotification =
         @"NSApplicationDidChangeScreenParametersNotification";
 
+NSString *const NSApplicationLaunchIsDefaultLaunchKey =
+        @"NSApplicationLaunchIsDefaultLaunchKey";
 NSString *const NSApplicationLaunchUserNotificationKey =
         @"NSApplicationLaunchUserNotificationKey";
 

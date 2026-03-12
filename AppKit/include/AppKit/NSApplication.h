@@ -55,6 +55,7 @@ APPKIT_EXPORT const NSNotificationName NSApplicationWillTerminateNotification;
 APPKIT_EXPORT const NSNotificationName
         NSApplicationDidChangeScreenParametersNotification;
 
+APPKIT_EXPORT NSString *const NSApplicationLaunchIsDefaultLaunchKey;
 APPKIT_EXPORT NSString *const NSApplicationLaunchUserNotificationKey;
 
 typedef double NSAppKitVersion;
