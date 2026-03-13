@@ -32,6 +32,11 @@ CGDataProviderRef CGDataProviderCreateWithCFData(CFDataRef data) {
     return O2DataProviderCreateWithCFData(data);
 }
 
+COREGRAPHICS_EXPORT CGDataProviderRef CGDataProviderCreateWithURL(CFURLRef url)
+{
+    return O2DataProviderCreateWithURL((NSURL *) url);
+}
+
 COREGRAPHICS_EXPORT CGDataProviderRef
 CGDataProviderCreateWithData(void *info, const void *data, size_t size,
                              CGDataProviderReleaseDataCallback releaseCallback)
@@ -39,6 +44,6 @@ CGDataProviderCreateWithData(void *info, const void *data, size_t size,
     return O2DataProviderCreateWithData(info, data, size, releaseCallback);
 }
 
-COREGRAPHICS_EXPORT CFDataRef CGDataProviderCopyData(CGDataProviderRef self) {
+CFDataRef CGDataProviderCopyData(CGDataProviderRef self) {
     return (CFDataRef) O2DataProviderCopyData(self);
 }
