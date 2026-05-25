@@ -309,7 +309,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
     _buttonPressed = NO;
 
     if (selectedIndex != NSNotFound) {
-        NSTextView *editor = [controlView currentEditor];
+        NSTextView *editor = nil;
+        if ([[controlView currentEditor] isKindOfClass:[NSTextView class]]) {
+            editor = (NSTextView*)[controlView currentEditor];
+        }
+        
         NSObject *object = [_objectValues objectAtIndex: selectedIndex];
         if (editor && object) {
             NSString *string = nil;
@@ -320,10 +324,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 
             if (!string)
                 if ([object isKindOfClass: [NSString class]])
-                    string = object;
+                    string = (NSString*)object;
                 else if ([object isKindOfClass: [NSAttributedString class]])
                     if ([editor isRichText])
-                        attstr = object;
+                        attstr = (NSAttributedString*)object;
                     else
                         string = [object string];
                 else if ([object respondsToSelector: @selector

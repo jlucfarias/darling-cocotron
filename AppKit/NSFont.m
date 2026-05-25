@@ -406,7 +406,7 @@ static NSLock *_cacheLock = nil;
             [coder decodeValuesOfObjCTypes: (version == 2) ? "%fss" : "*fss",
                                             &nameStr, &flt, &flags1, &flags2];
 
-            name = [NSString stringWithCString: name
+            name = [NSString stringWithCString: nameStr
                                       encoding: NSASCIIStringEncoding];
             free(nameStr);
 
