@@ -2204,7 +2204,7 @@ static NSView *viewBeingPrinted = nil;
 
     if (viewBeingPrinted == nil && _layer != nil) {
         CGImageRef image = CGBitmapContextCreateImage(context);
-        [_layer setContents: image];
+        [_layer setContents:(id)image];
         CGImageRelease(image);
     }
 

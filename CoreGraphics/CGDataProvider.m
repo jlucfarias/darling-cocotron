@@ -21,24 +21,24 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 #import <Onyx2D/O2DataProvider.h>
 
 CGDataProviderRef CGDataProviderRetain(CGDataProviderRef provider) {
-    return O2DataProviderRetain(provider);
+    return (CGDataProviderRef)O2DataProviderRetain((O2DataProviderRef)provider);
 }
 
 void CGDataProviderRelease(CGDataProviderRef provider) {
-    return O2DataProviderRelease(provider);
+    O2DataProviderRelease((O2DataProviderRef)provider);
 }
 
 CGDataProviderRef CGDataProviderCreateWithCFData(CFDataRef data) {
-    return O2DataProviderCreateWithCFData(data);
+    return (CGDataProviderRef)O2DataProviderCreateWithCFData(data);
 }
 
 COREGRAPHICS_EXPORT CGDataProviderRef
 CGDataProviderCreateWithData(void *info, const void *data, size_t size,
                              CGDataProviderReleaseDataCallback releaseCallback)
 {
-    return O2DataProviderCreateWithData(info, data, size, releaseCallback);
+    return (CGDataProviderRef)O2DataProviderCreateWithData(info, data, size, releaseCallback);
 }
 
 COREGRAPHICS_EXPORT CFDataRef CGDataProviderCopyData(CGDataProviderRef self) {
-    return (CFDataRef) O2DataProviderCopyData(self);
+    return (CFDataRef) O2DataProviderCopyData((O2DataProviderRef)self);
 }

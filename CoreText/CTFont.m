@@ -90,9 +90,9 @@ CTFontRef CTFontCreateWithFontDescriptorAndOptions(CTFontDescriptorRef descripto
 CTFontRef CTFontCreateUIFontForLanguage(CTFontUIFontType uiFontType,
                                         CGFloat size, CFStringRef language)
 {
-    return [[KTFont alloc] initWithUIFontType: uiFontType
+    return (CTFontRef)[[KTFont alloc] initWithUIFontType: uiFontType
                                          size: size
-                                     language: language];
+                                     language: (NSString*)language];
 }
 
 CTFontRef CTFontCreateCopyWithAttributes(CTFontRef font, CGFloat size,
@@ -376,7 +376,7 @@ CTFontCreateWithGraphicsFont(CGFontRef cgFont, CGFloat size,
                              CGAffineTransform *xform,
                              CTFontDescriptorRef attributes)
 {
-    return [[KTFont alloc] initWithFont: cgFont size: size];
+    return (CTFontRef)[[KTFont alloc] initWithFont: cgFont size: size];
 }
 
 ATSFontRef CTFontGetPlatformFont(CTFontRef font, CTFontDescriptorRef  _Nullable *attributes)

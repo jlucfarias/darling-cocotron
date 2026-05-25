@@ -25,8 +25,8 @@ CGContextRef CGBitmapContextCreate(void *bytes, size_t width, size_t height,
                                    CGColorSpaceRef colorSpace,
                                    CGBitmapInfo bitmapInfo)
 {
-    return O2BitmapContextCreate(bytes, width, height, bitsPerComponent,
-                                 bytesPerRow, colorSpace, bitmapInfo);
+    return (CGContextRef)O2BitmapContextCreate(bytes, width, height, bitsPerComponent,
+                                 bytesPerRow, (O2ColorSpaceRef)colorSpace, bitmapInfo);
 }
 
 CGContextRef CGBitmapContextCreateWithData(void *data, size_t width, size_t height,
@@ -40,41 +40,41 @@ CGContextRef CGBitmapContextCreateWithData(void *data, size_t width, size_t heig
 }
 
 void *CGBitmapContextGetData(CGContextRef self) {
-    return O2BitmapContextGetData(self);
+    return O2BitmapContextGetData((O2ContextRef)self);
 }
 
 size_t CGBitmapContextGetWidth(CGContextRef self) {
-    return O2BitmapContextGetWidth(self);
+    return O2BitmapContextGetWidth((O2ContextRef)self);
 }
 
 size_t CGBitmapContextGetHeight(CGContextRef self) {
-    return O2BitmapContextGetHeight(self);
+    return O2BitmapContextGetHeight((O2ContextRef)self);
 }
 
 size_t CGBitmapContextGetBitsPerComponent(CGContextRef self) {
-    return O2BitmapContextGetBitsPerComponent(self);
+    return O2BitmapContextGetBitsPerComponent((O2ContextRef)self);
 }
 
 size_t CGBitmapContextGetBytesPerRow(CGContextRef self) {
-    return O2BitmapContextGetBytesPerRow(self);
+    return O2BitmapContextGetBytesPerRow((O2ContextRef)self);
 }
 
 CGColorSpaceRef CGBitmapContextGetColorSpace(CGContextRef self) {
-    return O2BitmapContextGetColorSpace(self);
+    return (CGColorSpaceRef)O2BitmapContextGetColorSpace((O2ContextRef)self);
 }
 
 CGBitmapInfo CGBitmapContextGetBitmapInfo(CGContextRef self) {
-    return O2BitmapContextGetBitmapInfo(self);
+    return O2BitmapContextGetBitmapInfo((O2ContextRef)self);
 }
 
 size_t CGBitmapContextGetBitsPerPixel(CGContextRef self) {
-    return O2BitmapContextGetBitsPerPixel(self);
+    return O2BitmapContextGetBitsPerPixel((O2ContextRef)self);
 }
 
 CGImageAlphaInfo CGBitmapContextGetAlphaInfo(CGContextRef self) {
-    return O2BitmapContextGetAlphaInfo(self);
+    return (CGImageAlphaInfo)O2BitmapContextGetAlphaInfo((O2ContextRef)self);
 }
 
 CGImageRef CGBitmapContextCreateImage(CGContextRef self) {
-    return O2BitmapContextCreateImage(self);
+    return (CGImageRef)O2BitmapContextCreateImage((O2ContextRef)self);
 }

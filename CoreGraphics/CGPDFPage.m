@@ -22,7 +22,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 #import <Onyx2D/O2PDFPage.h>
 
 CGPDFPageRef CGPDFPageRetain(CGPDFPageRef self) {
-    return [self retain];
+    return (CGPDFPageRef)[self retain];
 }
 
 void CGPDFPageRelease(CGPDFPageRef self) {
@@ -44,5 +44,5 @@ CGAffineTransform CGPDFPageGetDrawingTransform(CGPDFPageRef self, CGPDFBox box,
                                                bool preserveAspectRatio)
 {
     return CGAffineTransformFromO2(O2PDFPageGetDrawingTransform(
-            self, box, rect, clockwiseDegrees, preserveAspectRatio));
+            (O2PDFPageRef)self, box, rect, clockwiseDegrees, preserveAspectRatio));
 }

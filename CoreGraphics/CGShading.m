@@ -21,11 +21,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 #import <Onyx2D/O2Shading.h>
 
 CGShadingRef CGShadingRetain(CGShadingRef self) {
-    return O2ShadingRetain(self);
+    return (CGShadingRef)O2ShadingRetain((O2ShadingRef)self);
 }
 
 void CGShadingRelease(CGShadingRef self) {
-    O2ShadingRelease(self);
+    O2ShadingRelease((O2ShadingRef)self);
 }
 
 CGShadingRef CGShadingCreateAxial(CGColorSpaceRef colorSpace,
@@ -33,7 +33,7 @@ CGShadingRef CGShadingCreateAxial(CGColorSpaceRef colorSpace,
                                   CGFunctionRef function, bool extendStart,
                                   bool extendEnd)
 {
-    return O2ShadingCreateAxial(colorSpace, startPoint, endPoint, function,
+    return (CGShadingRef)O2ShadingCreateAxial((O2ColorSpaceRef)colorSpace, startPoint, endPoint, (O2FunctionRef)function,
                                 extendStart, extendEnd);
 }
 
@@ -43,6 +43,6 @@ CGShadingRef CGShadingCreateRadial(CGColorSpaceRef colorSpace,
                                    CGFunctionRef function, bool extendStart,
                                    bool extendEnd)
 {
-    return O2ShadingCreateRadial(colorSpace, startPoint, startRadius, endPoint,
-                                 endRadius, function, extendStart, extendEnd);
+    return (CGShadingRef)O2ShadingCreateRadial((O2ColorSpaceRef)colorSpace, startPoint, startRadius, endPoint,
+                                 endRadius, (O2FunctionRef)function, extendStart, extendEnd);
 }

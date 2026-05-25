@@ -84,7 +84,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
     NSArray *entries = [_reader imageFileDirectory];
 
     if ([entries count] <= index)
-        return [[NSDictionary alloc] init];
+        return (CFDictionaryRef)[[NSDictionary alloc] init];
 
     O2TIFFImageDirectory *directory = [entries objectAtIndex: index];
 

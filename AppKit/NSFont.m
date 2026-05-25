@@ -595,7 +595,7 @@ static NSLock *_cacheLock = nil;
 }
 
 - (NSCharacterSet *) coveredCharacterSet {
-    return O2FontGetCoveredCharacterSet(_cgFont);
+    return O2FontGetCoveredCharacterSet((O2FontRef)_cgFont);
 }
 
 - (NSStringEncoding) mostCompatibleStringEncoding {
