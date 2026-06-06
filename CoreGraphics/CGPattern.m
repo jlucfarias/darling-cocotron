@@ -22,11 +22,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 #import <Onyx2D/O2Pattern.h>
 
 CGPatternRef CGPatternRetain(CGPatternRef self) {
-    return O2PatternRetain(self);
+    return (CGPatternRef)O2PatternRetain((O2PatternRef)self);
 }
 
 void CGPatternRelease(CGPatternRef self) {
-    O2PatternRelease(self);
+    O2PatternRelease((O2PatternRef)self);
 }
 
 CGPatternRef CGPatternCreate(void *info, CGRect bounds,
@@ -35,27 +35,27 @@ CGPatternRef CGPatternCreate(void *info, CGRect bounds,
                              bool isColored,
                              const CGPatternCallbacks *callbacks)
 {
-    return O2PatternCreate(info, bounds, O2AffineTransformFromCG(matrix), xstep,
+    return (CGPatternRef)O2PatternCreate(info, bounds, O2AffineTransformFromCG(matrix), xstep,
                            ystep, tiling, isColored,
                            O2PatternCallbacksFromCG(callbacks));
 }
 
 void *CGPatternGetImage(CGPatternRef self) {
-    return O2PatternGetImage(self);
+    return O2PatternGetImage((O2PatternRef)self);
 }
 
 CGRect CGPatternGetBounds(CGPatternRef self) {
-    return O2PatternGetBounds(self);
+    return O2PatternGetBounds((O2PatternRef)self);
 }
 
 CGAffineTransform CGPatternGetMatrix(CGPatternRef self) {
-    return CGAffineTransformFromO2(O2PatternGetMatrix(self));
+    return CGAffineTransformFromO2(O2PatternGetMatrix((O2PatternRef)self));
 }
 
 CGPatternTiling CGPatternGetTiling(CGPatternRef self) {
-    return O2PatternGetTiling(self);
+    return O2PatternGetTiling((O2PatternRef)self);
 }
 
 bool CGPatternIsColored(CGPatternRef self) {
-    return O2PatternIsColored(self);
+    return O2PatternIsColored((O2PatternRef)self);
 }

@@ -318,9 +318,15 @@ NSNotificationName NSWorkspaceWillUnmountNotification = @"NSWorkspaceWillUnmount
 
 @end
 
+static dispatch_once_t _initOnceNsWorkspaceOpenConfig;
+static NSWorkspaceOpenConfiguration* _singletonNsWorkspaceOpenConfig;
+
 @implementation NSWorkspaceOpenConfiguration
 + (instancetype)configuration {
-    return self;
+    dispatch_once(&_initOnceNsWorkspaceOpenConfig, ^{
+        _singletonNsWorkspaceOpenConfig = [[NSWorkspaceOpenConfiguration alloc] init];
+    });
+    return _singletonNsWorkspaceOpenConfig;
 }
 
 @end

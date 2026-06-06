@@ -22,11 +22,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 #import <Onyx2D/O2Function.h>
 
 CGFunctionRef CGFunctionRetain(CGFunctionRef self) {
-    return O2FunctionRetain(self);
+    return (CGFunctionRef)O2FunctionRetain((O2FunctionRef)self);
 }
 
 void CGFunctionRelease(CGFunctionRef self) {
-    O2FunctionRelease(self);
+    O2FunctionRelease((O2FunctionRef)self);
 }
 
 CGFunctionRef CGFunctionCreate(void *info, size_t domainDimension,
@@ -34,6 +34,6 @@ CGFunctionRef CGFunctionCreate(void *info, size_t domainDimension,
                                const CGFloat *range,
                                const CGFunctionCallbacks *callbacks)
 {
-    return O2FunctionCreate(info, domainDimension, domain, rangeDimension,
+    return (CGFunctionRef)O2FunctionCreate(info, domainDimension, domain, rangeDimension,
                             range, O2FunctionCallbacksFromCG(callbacks));
 }

@@ -293,7 +293,7 @@ void CATexImage2DCGImage(CGImageRef image) {
     }
 
     if (loadPixelData) {
-        CGImageRef image = layer.contents;
+        CGImageRef image = (CGImageRef)layer.contents;
 
         CATexImage2DCGImage(image);
 

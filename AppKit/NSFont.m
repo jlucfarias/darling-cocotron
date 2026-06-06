@@ -406,7 +406,7 @@ static NSLock *_cacheLock = nil;
             [coder decodeValuesOfObjCTypes: (version == 2) ? "%fss" : "*fss",
                                             &nameStr, &flt, &flags1, &flags2];
 
-            name = [NSString stringWithCString: name
+            name = [NSString stringWithCString: nameStr
                                       encoding: NSASCIIStringEncoding];
             free(nameStr);
 
@@ -595,7 +595,7 @@ static NSLock *_cacheLock = nil;
 }
 
 - (NSCharacterSet *) coveredCharacterSet {
-    return O2FontGetCoveredCharacterSet(_cgFont);
+    return O2FontGetCoveredCharacterSet((O2FontRef)_cgFont);
 }
 
 - (NSStringEncoding) mostCompatibleStringEncoding {

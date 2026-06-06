@@ -48,7 +48,7 @@
         return nil;
     }
 
-    self = [self initWithFont: font size: size];
+    self = [self initWithFont: (CGFontRef)font size: size];
 
     [font release];
 

@@ -116,7 +116,7 @@ NSString *kO2ImagePropertyTIFFOrientation = @"Orientation";
 - (CFDictionaryRef) copyPropertiesAtIndex: (NSUInteger) index
                                   options: (CFDictionaryRef) options
 {
-    return [[NSDictionary alloc] init];
+    return (CFDictionaryRef)[[NSDictionary alloc] init];
 }
 
 - (O2Image *) createImageAtIndex: (NSUInteger) index

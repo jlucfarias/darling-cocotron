@@ -21,7 +21,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 #import <Onyx2D/O2PDFDocument.h>
 
 CGPDFDocumentRef CGPDFDocumentRetain(CGPDFDocumentRef self) {
-    return [self retain];
+    return (CGPDFDocumentRef)[self retain];
 }
 
 void CGPDFDocumentRelease(CGPDFDocumentRef self) {
@@ -29,11 +29,11 @@ void CGPDFDocumentRelease(CGPDFDocumentRef self) {
 }
 
 CGPDFDocumentRef CGPDFDocumentCreateWithProvider(CGDataProviderRef provider) {
-    return [[O2PDFDocument alloc] initWithDataProvider: provider];
+    return (CGPDFDocumentRef)[[O2PDFDocument alloc] initWithDataProvider: (O2DataProvider*)provider];
 }
 
 CGPDFDocumentRef CGPDFDocumentCreateWithURL(CFURLRef url) {
-    return [[O2PDFDocument alloc] initWithURL: url];
+    return (CGPDFDocumentRef)[[O2PDFDocument alloc] initWithURL: (NSURL*)url];
 }
 
 size_t CGPDFDocumentGetNumberOfPages(CGPDFDocumentRef self) {
@@ -41,5 +41,5 @@ size_t CGPDFDocumentGetNumberOfPages(CGPDFDocumentRef self) {
 }
 
 CGPDFPageRef CGPDFDocumentGetPage(CGPDFDocumentRef self, size_t pageNumber) {
-    return [self pageAtNumber: pageNumber];
+    return (CGPDFPageRef)[self pageAtNumber: pageNumber];
 }

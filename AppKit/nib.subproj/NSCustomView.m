@@ -73,7 +73,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
                              [coder decodeIntegerForKey: @"NSViewLayerContentsR"
                                                          @"edrawPolicy"]];
             [self release];
-            return newView;
+            return (NSCustomView*)newView;
         }
     } else {
         [NSException raise: NSInvalidArgumentException

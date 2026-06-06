@@ -473,7 +473,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
         frame.size = informativeSize;
         textField = [[[NSTextField alloc] initWithFrame: frame] autorelease];
         [textField
-                setStringValue: [[[NSAttributedString alloc]
+                setAttributedStringValue: [[[NSAttributedString alloc]
                                         initWithString: _informativeText
                                             attributes: informativeAttributes]
                                         autorelease]];

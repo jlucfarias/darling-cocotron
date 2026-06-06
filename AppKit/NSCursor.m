@@ -190,8 +190,8 @@ static NSMutableArray *_cursorStack = nil;
 }
 
 - initWithCoder: (NSCoder *) coder {
-    [self dealloc];
-    return [NSNull null];
+    // TODO: Need to implement
+    return self;
 }
 
 - (void) encodeWithCoder: (NSCoder *) coder {
