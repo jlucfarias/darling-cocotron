@@ -440,6 +440,7 @@ static NSData *makeWindowIcon() {
         O2ColorSpaceRelease(colorSpace);
         _context = [[O2Context_builtin_FT alloc] initWithSurface: surface
                                                          flipped: NO];
+        [surface release];
     }
     return _context;
 }
